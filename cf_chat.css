@@ -1,6 +1,51 @@
-body {
-  background-color:white ! important;
+body, .dialog, td {
+  /* MODS Trevor Squires: make sure the body background is
+     white so that our div.speak clipping gradient doesn't
+     look like rubbish on the standard gray body background */
+  background-color: #FFFFFF ! important;
+  font: 16px/1.6em "Helvetica" !important;
 }
+
+div.col {
+  padding: 0 !important;
+}
+tbody.chat td {
+  padding: 3px 5px !important;
+  border: 0 !important;
+}
+tbody.chat td.body {
+  border-bottom: 1px dotted #f7f7f7 !important;
+}
+td.person, 
+table.chat tr.you td,
+table.chat tr.leave_message td, 
+table.chat tr.enter_message td, 
+table.chat tr.kick_message td {
+  background-color: white !important;
+}
+table.chat tr.you td {
+  color: #333 !important;
+}
+td.person {
+  font-weight: bold !important;
+}
+table.chat tr.leave_message td, 
+table.chat tr.enter_message td, 
+table.chat tr.kick_message td {
+  color: #777 !important;
+}
+a:link, a:visited {
+  color: #b00 !important;
+}
+table.chat td {
+  border: none !important;
+}
+tr.lock_message, tr.unlock_message {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+
 #upload_target {
   display:none ! important;
 }
@@ -9,9 +54,12 @@ div.bottom {
   margin:0px ! important;
   background-image: none ! important;
 }
-table.chat {
-  margin-bottom: 5px ! important;
-}
+/* MODS Trevor Squires - changed last_message, clipper and speak styles 
+   so that a nice white 'fade' gradient overlays the bottom of the 
+   transcript.
+   If you want the clipping gradient to be a different size, tweak
+   #last_message height and padding to create enough space.
+*/
 div#last_message{
   height: 10px ! important;
   padding-bottom: 5px ! important;
@@ -19,6 +67,15 @@ div#last_message{
 div#clipper > div {
   display:none ! important;
 }
+/* Override the URL for div.speak background image.
+   Note how I'm using a data: URL to get around the fact that
+   the stylesheet can't refer to local resources.
+   I created the base64 version of my gradient image  in Ruby like this:
+   puts Base64.encode64(`cat speak-gradient.png`).split(/\n/).join()
+   Also note that I set the height of div.speak to be the same as the sum
+   of div#clipper height and padding and made sure bottom was 0 so everything
+   lined up properly.
+*/
 div.speak {
   width: 100% ! important;
   padding:0px ! important;
@@ -46,7 +103,7 @@ div#corner_logo {
   display:none ! important;
 }
 tbody#chat div, tbody#chat span {
-  font-size: 1.1em ! important;
+  font-size: .9em ! important;
 }
 div.Left {
   width: 100% ! important;
@@ -63,9 +120,14 @@ div#Container {
   padding-bottom:5px ! important;
   background-color:#FFFFFF ! important;
 }
-form#search_form { display: none ! important; }
 tr.propane_search td { background-color: #ffd8d8 ! important; }
+
 tr.propane_current_search td { background-color: #ff9090 ! important; }
+
+form#search_form { display: none ! important; }
+
 div#open_bar { display: none ! important; }
+
 tr.propane_alert_match:not(.propane_search) td.body { background-color: #D9FAD9 ! important; }
+
 tr.propane_hidden_enterleave { display: none ! important; }
