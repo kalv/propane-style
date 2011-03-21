@@ -54,3 +54,14 @@ div#Container {
   padding-bottom:5px ! important;
   background-color:#FFFFFF ! important;
 }
+tr.propane_search td { background-color: #ffd8d8 ! important; }
+
+tr.propane_current_search td { background-color: #ff9090 ! important; }
+
+form#search_form { display: none ! important; }
+
+div#open_bar { display: none ! important; }
+
+tr.propane_alert_match:not(.propane_search) td.body { background-color: #D9FAD9 ! important; }
+
+tr.propane_hidden_enterleave { display: none ! important; }
