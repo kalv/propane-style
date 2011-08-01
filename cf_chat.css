@@ -29,6 +29,10 @@ table.chat tr.you td {
 td.person {
   font-weight: bold !important;
 }
+/*table.chat tr.timestamp_message, table.chat tr.timestamp_message td {
+  background: #e25656;
+  color: #fff;
+}*/
 table.chat tr.leave_message td, 
 table.chat tr.enter_message td, 
 table.chat tr.kick_message td {
